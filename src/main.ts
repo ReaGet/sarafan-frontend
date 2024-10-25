@@ -7,6 +7,8 @@ import App from './app.vue'
 const app = createApp(App)
 const pinia = createPinia()
 
+console.log(import.meta.env.BASE_API)
+
 app
 .use(pinia)
 .use(router)
