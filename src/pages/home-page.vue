@@ -1,11 +1,14 @@
 <template>
-  <div class="px-8 bg-red-100">
-    Hello!
-  </div>
-  <Navigation />
+  <Search />
+  <SellerTop />
+  <ProductsTile />
+  <!-- <Navigation /> -->
 </template>
 
 <script setup lang="ts">
 import Navigation from '../components/navigation.vue'
+import Search from '../components/search.vue'
+import SellerTop from '../components/sellerTop.vue'
+import ProductsTile from '../components/productsTile.vue'
 
 </script>
