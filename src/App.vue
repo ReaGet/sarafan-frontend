@@ -4,4 +4,16 @@
 
 <script setup lang="ts"></script>
 
-<style scoped></style>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+</style>
