@@ -5,10 +5,10 @@
                 <img src="/src/assets/seller-avatar.jpg" alt="seller-avatar" class="seller-avatar">
                 <h2 class="seller-name">Владимир IT</h2>
             </div>
+
             <a href="" class="link-item">
 
             </a>
-
         </div>
     </div>
 </template>

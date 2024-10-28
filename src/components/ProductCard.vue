@@ -2,13 +2,17 @@
     <div class="product-card">
         <div class="product-img" style="background-image: url('src/assets/product-image.png')"></div>
         <p class="product-title">Пицца “Японская”</p>
-        <a href="" class="buy-btn">
-            <img src="/src/assets/buy-icon.svg" class="buy-btn-icon" />
-            <div class="buy-btn-text">900 ₽</div>
-        </a>
+        <Button class-name="gap-4 text-black text-[1.4rem] font-bold">
+            <CartIcon color="var(--black)" />
+            900 ₽
+        </Button>
     </div>
 </template>
 
+<script setup lang="ts">
+import CartIcon from './icons/CartIcon.vue';
+import Button from './ui/Button.vue'
+</script>
 
 <style lang="scss" scoped>
 .product-card {

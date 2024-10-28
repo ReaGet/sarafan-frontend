@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import ProductCard from './productCard.vue'
+import ProductCard from './ProductCard.vue'
 
 
 </script>

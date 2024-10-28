@@ -6,9 +6,9 @@
 </template>
 
 <script setup lang="ts">
-import Navigation from '../components/navigation.vue'
-import Search from '../components/search.vue'
-import SellerTop from '../components/sellerTop.vue'
-import ProductsTile from '../components/productsTile.vue'
+import Navigation from '../components/Navigation.vue'
+import Search from '../components/Search.vue'
+import SellerTop from '../components/SellerTop.vue'
+import ProductsTile from '../components/ProductsTile.vue'
 
 </script>
