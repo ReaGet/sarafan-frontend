@@ -2,7 +2,7 @@
     <div class="product-card">
         <div class="product-img" style="background-image: url('src/assets/product-image.png')"></div>
         <p class="product-title">Пицца “Японская”</p>
-        <Button class-name="gap-4 text-black text-[1.4rem] font-bold">
+        <Button className="gap-4 text-black text-[1.4rem] font-bold">
             <CartIcon color="var(--black)" />
             900 ₽
         </Button>

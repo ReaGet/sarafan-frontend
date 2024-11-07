@@ -1,7 +1,8 @@
 import { createApp } from 'vue'
 import './style.css'
 import { createPinia } from 'pinia'
-import { router } from './lib/router'
+import { router } from './router'
+import { registerLayouts } from './layouts/register'
 import App from './App.vue'
 
 const app = createApp(App)
@@ -12,4 +13,5 @@ console.log(import.meta.env.BASE_API)
 app
 .use(pinia)
 .use(router)
+.use(registerLayouts)
 .mount('#app')
