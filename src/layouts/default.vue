@@ -17,9 +17,4 @@ export default defineComponent({
 <script setup lang="ts">
 import Header from '../components/Header.vue'
 import Navigation from '../components/Navigation.vue'
-
 </script>
-
-<style lang="scss" scoped>
-
-</style>

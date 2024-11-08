@@ -4,8 +4,8 @@
       'stroke-current fill-current',
       className
     )"
-    :width="width"
-    :height="height"
+    :width="size !== undefined ? size : width"
+    :height="size !== undefined ? size : height"
     :viewBox="viewBox" 
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -20,6 +20,7 @@ import { IconProps } from '../../types/icon';
 withDefaults(defineProps<IconProps>(), {
   width: 24,
   height: 24,
+  size: undefined,
   viewBox: '0 0 24 24',
   className: ''
 })

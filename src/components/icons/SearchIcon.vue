@@ -10,8 +10,6 @@ import BaseIcon from './BaseIcon.vue';
 import { IconProps } from '../../types/icon';
 
 const props = withDefaults(defineProps<IconProps>(), {
-  height: 24,
-  width: 24,
   viewBox: '0 0 24 24'
 })
 </script>

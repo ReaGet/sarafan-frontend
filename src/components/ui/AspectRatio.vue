@@ -5,10 +5,10 @@
       className
     )"
     :style="{
-      paddingTop: `${(100 / ratio).toFixed(2)}%`
+      paddingBottom: `${(100 / ratio).toFixed(2)}%`
     }"
   >
-    <div class="absolute flex items-center justify-center w-full h-full top-0 left-0 overflow-hidden">
+    <div class="absolute flex items-center justify-center top-0 left-0 bottom-0 right-0 overflow-hidden">
       <slot />
     </div>
   </div>
