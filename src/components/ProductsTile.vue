@@ -10,9 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import ProductCard from './ProductCard.vue'
-
-
+    import ProductCard from './ProductCard.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -20,6 +18,6 @@ import ProductCard from './ProductCard.vue'
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 15px;
-            width: 100%;
+        width: 100%;
     }
 </style>

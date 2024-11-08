@@ -24,6 +24,9 @@ export default {
       borderRadius: {
         DEFAULT: '0.4rem',
         lg: '0.8rem',
+      },
+      boxShadow: {
+        sm: '0px 0px 25px rgba(0, 0, 0, 0.05)'
       }
     }
   },
