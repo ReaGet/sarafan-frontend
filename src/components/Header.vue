@@ -1,5 +1,5 @@
 <template>
-  <header class="flex flex-col">
+  <header class="sticky flex flex-col px-6 mb-6 top-0 bg-white z-10">
     <Search />
   </header>
 </template>

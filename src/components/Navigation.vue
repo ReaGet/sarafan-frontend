@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed flex items-center justify-between w-full px-6 py-4 bottom-0 text-[1.2rem] text-gray-dark transition-colors shadow-sm">
+  <nav class="fixed flex items-center justify-between w-full h-24 px-6 bottom-0 text-[1.2rem] text-gray-dark transition-colors shadow-sm bg-white z-10">
     <RouterLink
       v-for="{ icon, label, link } in navivationItems" :key="link"
       class="flex flex-col items-center justify-center hover:text-black/70"

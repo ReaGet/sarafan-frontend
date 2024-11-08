@@ -1,8 +1,10 @@
 <template>
-  <ProductsTile />
+  <CategoryList />
+  <ProductList />
 </template>
 
 <script setup lang="ts">
-import ProductsTile from '../components/ProductsTile.vue'
+import CategoryList from '../components/CategoryList.vue';
+import ProductList from '../components/ProductList.vue'
 
 </script>

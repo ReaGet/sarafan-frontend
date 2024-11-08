@@ -1,61 +1,29 @@
 <template>
-    <div class="product-card">
-        <div class="product-img" style="background-image: url('src/assets/product-image.png')"></div>
-        <p class="product-title">Пицца “Японская”</p>
-        <Button className="gap-4 text-black text-[1.4rem] font-bold">
-            <CartIcon color="var(--black)" />
-            900 ₽
-        </Button>
-    </div>
+	<article class="flex flex-col text-black">
+		<AspectRatio className="bg-gray rounded-3xl">
+			<img :src="`/${thumbnail}`" class="w-full h-full object-cover" alt="">
+		</AspectRatio>
+		<h2 class="mt-4 text-[1.4rem]">{{ title }}</h2>
+		<Button className="gap-4 mt-6 hover:bg-gray-dark/50">
+			<CartIcon />
+			<div>
+				<div v-if="price" class="text-[1.4rem] leading-[1.4rem] font-bold">{{ price }} ₽</div>
+				<div v-if="oldPrice" class="text-[1.2rem] leading-[1.2rem] text-gray-dark line-through">{{ oldPrice }} ₽</div>
+			</div>
+		</Button>
+	</article>
 </template>
 
 <script setup lang="ts">
 import CartIcon from './icons/CartIcon.vue';
+import AspectRatio from './ui/AspectRatio.vue';
 import Button from './ui/Button.vue'
+
+const props = defineProps<{
+	id: string
+	title: string
+	price: number
+	oldPrice?: number
+	thumbnail: string
+}>()
 </script>
-
-<style lang="scss" scoped>
-.product-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.buy-btn-text {
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.buy-btn {
-    width: 100%;
-    display: inline-block;
-    height: 40px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    background-color: #F5F7FA;
-    border-radius: 15px;
-    margin-top: 15px;
-}
-
-.product-img {
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-
-    &::after {
-        content: "";
-        display: block;
-        padding-top: 100%;
-    }
-}
-
-.product-title {
-    margin-top: 10px;
-    font-size: 14px;
-    text-align: left;
-    width: 100%;
-}
-</style>
