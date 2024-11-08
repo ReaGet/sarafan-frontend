@@ -1,6 +1,6 @@
 <template>
   <CategoryList />
-  <ProductList />
+  <ProductList title="Новинки" linkFollow="/category" />
 </template>
 
 <script setup lang="ts">
