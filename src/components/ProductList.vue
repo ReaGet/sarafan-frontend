@@ -13,7 +13,7 @@
 		</h2>
 		<div class="product-list">
 			<ProductCard
-				v-for="product in products"
+				v-for="product in PRODUCTS"
 				:key="product.id"
 				v-bind="product"
 			/>
@@ -24,19 +24,7 @@
 <script setup lang="ts">
 import ArrowIcon from './icons/ArrowIcon.vue';
 import ProductCard from './ProductCard.vue'
-
-const getRandPrice = () => ~~(Math.random() * 1700 + 300)
-
-const products = [
-	{ id: '1', title: 'Пицца "Японская"', price: getRandPrice(), oldPrice: 1200, thumbnail: 'images/product-image.png' },
-	{ id: '2', title: 'Пицца "Пепперони"', price: getRandPrice(), thumbnail: 'images/product-image.png' },
-	{ id: '3', title: 'Пицца "Японская"', price: getRandPrice(), oldPrice: 1200, thumbnail: 'images/product-image.png' },
-	{ id: '4', title: 'Пицца "Пепперони"', price: getRandPrice(), thumbnail: 'images/product-image.png' },
-	{ id: '5', title: 'Пицца "Японская"', price: getRandPrice(), oldPrice: 1200, thumbnail: 'images/product-image.png' },
-	{ id: '6', title: 'Пицца "Пепперони"', price: getRandPrice(), thumbnail: 'images/product-image.png' },
-	{ id: '7', title: 'Пицца "Японская"', price: getRandPrice(), oldPrice: 1200, thumbnail: 'images/product-image.png' },
-	{ id: '8', title: 'Пицца "Пепперони"', price: getRandPrice(), thumbnail: 'images/product-image.png' },
-]
+import { PRODUCTS } from '../constants/products';
 
 // TODO: возможно передавать в качестве пропсов категорию, количество товаров за раз и сам компонент уже отвечает за запросы и т.д.
 defineProps<{
