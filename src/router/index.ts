@@ -18,6 +18,14 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/business/:id',
+    name: 'BusinessPage',
+    component: () => import('../pages/business-page.vue'),
+    meta: {
+      layout: 'Default'
+    }
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('../pages/not-found-page.vue'),

@@ -1,7 +1,7 @@
 <template>
   <header
     :class="cn(
-      'sticky flex flex-col px-6 mb-6 top-0 bg-white z-10',
+      'sticky flex flex-col px-6 mb-6 top-0 bg-white z-20',
       { 'mb-0': isProductCard }
     )"
   >
