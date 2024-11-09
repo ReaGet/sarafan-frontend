@@ -63,7 +63,7 @@
       <button class="font-bold" type="button">Читать</button>
     </div>
   </div>
-
+  <!-- TODO: сделать визуальное разделение серым цветом -->
   <div class="mt-20 bg-white rounded-t-3xl">
     <ProductList title="Рекомендуем также" linkFollow="/" />
   </div>
