@@ -17,7 +17,7 @@ import { SearchItem } from '../types/search'
 
 	&::before {
 		content: "";
-		background-image: url("src/assets/search-icon.svg");
+		background-image: url("../assets/search-icon.svg");
 		width: 16px;
 		height: 16px;
 		object-fit: contain;

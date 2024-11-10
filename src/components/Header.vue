@@ -2,12 +2,18 @@
   <header
     :class="cn(
       'sticky flex flex-col px-6 mb-6 top-0 bg-white z-20',
-      { 'mb-0': isProductCard }
+      { 'mb-0': isProductPage }
     )"
   >
-    <Search />
+    <div class="flex items-center gap-6">
+      <Button v-if="isBusinessPage" @click="() => router.back()" className="text-gray-dark">
+        <ArrowBackIcon :size="20" />
+      </Button>
+
+      <Search />
+    </div>
     <div
-      v-if="isProductCard"
+      v-if="isProductPage"
       class="flex justify-between pb-6 text-gray-dark"
     >
       <Button @click="() => router.back()">
@@ -39,8 +45,12 @@ import { cn } from '../lib/cn'
 const route = useRoute(),
   router = useRouter()
 
-const isProductCard = computed(() => {
+const isProductPage = computed(() => {
   return route.name === 'ProductPage'
+})
+
+const isBusinessPage = computed(() => {
+  return route.name === 'BusinessPage'
 })
 </script>
 
