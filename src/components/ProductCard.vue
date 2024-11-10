@@ -1,6 +1,6 @@
 <template>
 	<article>
-		<RouterLink class="flex flex-col text-black" :to="{
+		<RouterLink class="flex flex-col" :to="{
 			name: 'ProductPage',
 			params: { id }
 		}">

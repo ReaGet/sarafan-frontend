@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-white rounded-b-3xl text-black">
+  <Section class="rounded-b-3xl">
     <div class="flex items-center gap-4">
       <div class="flex items-center gap-4">
         <div class="w-[44px] h-[44px] rounded-xl overflow-hidden">
           <img class="h-full w-full object-cover" width="44" height="44" src="/images/profile.jpg" />
         </div>
-        <div class="text-[1.6rem] text-black font-medium">Hugoboss</div>
+        <div class="text-[1.6rem] font-medium">Hugoboss</div>
       </div>
   
       <ArrowIcon :size="24" className="text-gray-dark" />
@@ -22,11 +22,10 @@
         <div class="text-[1.4rem]">{{ feature.count }}</div>
       </div>
     </div>
-  </div>
-
-  <!-- TODO: сделать визуальное разделение серым цветом -->
-  <div class="mt-20 bg-white rounded-t-3xl">
-    <nav class="text-[1.4rem] text-black divide-y divide-gray">
+  </Section>
+  <Separator className="h-8" />
+  <Section class="pt-2 rounded-t-3xl">
+    <nav class="text-[1.4rem] divide-y divide-gray">
       <RouterLink
         v-for="item in profileNavigation"
         class="flex justify-between items-center h-16"
@@ -44,7 +43,7 @@
         <ArrowIcon className="text-gray-dark" />
       </RouterLink>
     </nav>
-  </div>
+  </Section>
 </template>
 
 <script setup lang="ts">
@@ -52,6 +51,8 @@ import ArrowIcon from '../components/icons/ArrowIcon.vue'
 import ReferalsIcon from '../components/icons/ReferalsIcon.vue'
 import HeartFilledIcon from '../components/icons/HeartFilledIcon.vue'
 import PurchaseIcon from '../components/icons/PurchaseIcon.vue'
+import Section from '../components/Section.vue';
+import Separator from '../components/Separator.vue';
 
 const profileNavigation = [
   { title: 'Личная информация', followLink: '/' },

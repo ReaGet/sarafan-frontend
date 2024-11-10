@@ -1,8 +1,6 @@
 <template>
   <Header />
-  <main class="px-6 pb-32">
-    <slot />
-  </main>
+  <slot />
   <Navigation />
 </template>
 

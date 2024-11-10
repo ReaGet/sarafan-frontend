@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded-b-3xl">
+  <Section class="pt-0 rounded-b-3xl">
     <div class="relative pb-14">
       <div class="-mx-6">
         <AspectRatio className="bg-gray">
@@ -56,25 +56,27 @@
       <RouterLink to="/" class="px-6 py-2 bg-gray rounded-xl">Футболки</RouterLink>
     </div>
 
-    <div class="mt-12 text-[1.6rem] text-black">
+    <div class="mt-12 text-[1.6rem]">
       <p class="inline line-clamp-5">
         Huawei - китайский производитель и ведущий мировой поставщик интеллектуальных устройств и инфраструктуры в области информационно-коммуникационных технологий...
       </p>
       <button class="font-bold" type="button">Читать</button>
     </div>
-  </div>
-  <!-- TODO: сделать визуальное разделение серым цветом -->
-  <div class="mt-20 bg-white rounded-t-3xl">
+  </Section>
+  <Separator />
+  <Section class="rounded-t-3xl">
     <ProductList title="Рекомендуем также" linkFollow="/" />
-  </div>
+  </Section>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import AspectRatio from '../components/ui/AspectRatio.vue'
 import { cn } from '../lib/cn';
-import ArrowIcon from '../components/icons/ArrowIcon.vue';
-import ProductList from '../components/ProductList.vue';
+import ArrowIcon from '../components/icons/ArrowIcon.vue'
+import ProductList from '../components/ProductList.vue'
+import Section from '../components/Section.vue'
+import Separator from '../components/Separator.vue'
 
 const currentSlide = ref(0)
 
@@ -87,3 +89,9 @@ const slides = [
   "/images/thumbnails/slide6.avif",
 ]
 </script>
+
+<style scoped>
+body {
+  background-color: var(--gray);
+}
+</style>

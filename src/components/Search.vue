@@ -4,10 +4,6 @@
 	</div>
 </template>
 
-<script setup lang="ts">
-import { SearchItem } from '../types/search'
-</script>
-
 <style lang="scss" scoped>
 .main-search-container {
 	margin-top: 15px;
