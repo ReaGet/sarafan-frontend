@@ -4,8 +4,8 @@
 			name: 'ProductPage',
 			params: { id }
 		}">
-			<AspectRatio className="bg-gray rounded-3xl">
-				<!-- <img :src="`/${thumbnail}`" class="w-full h-full object-cover" alt=""> -->
+			<AspectRatio className="bg-gray rounded-3xl overflow-hidden">
+				<img :src="`https://sarafanweb.ru${photos[0]}`" class="w-full h-full object-cover" alt="" loading="lazy">
 			</AspectRatio>
 			<h3 class="mt-4 text-[1.4rem]">{{ name }}</h3>
 			<Button className="gap-4 mt-6 hover:bg-gray-dark/50" @click.prevent>

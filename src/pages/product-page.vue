@@ -3,7 +3,7 @@
     <div class="relative pb-14">
       <div class="-mx-6">
         <AspectRatio className="bg-gray">
-          <img :src="slides[currentSlide]" class="w-full h-full object-cover">
+          <img :src="`https://sarafanweb.ru/${product?.photos[currentSlide]}`" class="w-full h-full object-cover">
         </AspectRatio>
       </div>
       <div class="absolute h-28 w-full p-4 bottom-0 bg-white rounded-3xl z-10 border border-gray">
@@ -13,14 +13,14 @@
               'shrink-0 w-20 rounded-xl overflow-hidden',
               { 'border border-primary': currentSlide === i}
             )"
-            v-for="(slide, i) in slides"
+            v-for="(slide, i) in product?.photos"
             :key="slide"
             @click="() => currentSlide = i"
           >
             <AspectRatio
               className="shrink-0 bg-gray"
             >
-              <img :src="slide" class="w-full h-full object-cover">
+              <img :src="`https://sarafanweb.ru/${slide}`" class="w-full h-full object-cover" loading="lazy">
             </AspectRatio>
           </div>
         </div>
@@ -85,14 +85,14 @@ const { params } = useRoute()
 const product = ref<Product|null>()
 const business = ref<Business|null>()
 
-const slides = [
-  "/images/thumbnails/slide1.jpg",
-  "/images/thumbnails/slide2.webp",
-  "/images/thumbnails/slide3.avif",
-  "/images/thumbnails/slide4.avif",
-  "/images/thumbnails/slide5.jpg",
-  "/images/thumbnails/slide6.avif",
-]
+// const slides = [
+//   "/images/thumbnails/slide1.jpg",
+//   "/images/thumbnails/slide2.webp",
+//   "/images/thumbnails/slide3.avif",
+//   "/images/thumbnails/slide4.avif",
+//   "/images/thumbnails/slide5.jpg",
+//   "/images/thumbnails/slide6.avif",
+// ]
 
 const getProductById = async (id: number): Promise<Product> => {
   return fetch(`${import.meta.env.VITE_BASE_API}/products/${id}`)
@@ -111,9 +111,3 @@ onMounted(async () => {
   business.value = businessData
 })
 </script>
-
-<style scoped>
-body {
-  background-color: var(--gray);
-}
-</style>

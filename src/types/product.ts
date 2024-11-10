@@ -16,4 +16,5 @@ export type Product = {
   weight: number
   weight_unit: string
   width: number
+  photos: string[]
 }

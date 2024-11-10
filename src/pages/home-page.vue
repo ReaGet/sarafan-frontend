@@ -1,6 +1,6 @@
 <template>
   <Section className="py-0">
-    <CategoryList />
+    <!-- <CategoryList /> -->
     <ProductList
       title="Новинки"
       linkFollow="/category"
