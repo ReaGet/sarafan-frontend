@@ -41,7 +41,7 @@
             <img class="h-full w-full object-cover" width="32" height="32" src="/images/profile.jpg" />
           </div>
           <div>
-            <div class="text-[1.6rem] leading-[1.6rem] text-black font-medium">Hugoboss</div>
+            <div class="text-[1.6rem] leading-[1.6rem] text-black font-medium">{{ business?.name }}</div>
             <div class="text-[1.4rem]">Магазин</div>
           </div>
         </div>
@@ -50,35 +50,40 @@
       </div>
     </RouterLink>
 
-    <h1 class="mt-8 text-[2rem] font-bold">Футблока Мужская Классная</h1>
-    <div class="mt-4 space-x-4 text-[1.4rem] leading-[1.4rem] text-gray-dark">
+    <h1 class="mt-8 text-[2rem] font-bold">{{ product?.name }}</h1>
+    <!-- <div class="mt-4 space-x-4 text-[1.4rem] leading-[1.4rem] text-gray-dark">
       <RouterLink to="/" class="px-6 py-2 bg-gray rounded-xl">Мужская одежда</RouterLink>
       <RouterLink to="/" class="px-6 py-2 bg-gray rounded-xl">Футболки</RouterLink>
-    </div>
+    </div> -->
 
     <div class="mt-12 text-[1.6rem]">
-      <p class="inline line-clamp-5">
-        Huawei - китайский производитель и ведущий мировой поставщик интеллектуальных устройств и инфраструктуры в области информационно-коммуникационных технологий...
-      </p>
-      <button class="font-bold" type="button">Читать</button>
+      <p class="inline line-clamp-5">{{ product?.description }}</p>
+      <!-- <button class="font-bold" type="button">Читать</button> -->
     </div>
   </Section>
   <Separator />
   <Section class="rounded-t-3xl">
-    <ProductList title="Рекомендуем также" linkFollow="/" />
+    <!-- <ProductList title="Рекомендуем также" linkFollow="/" /> -->
   </Section>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import AspectRatio from '../components/ui/AspectRatio.vue'
 import { cn } from '../lib/cn';
 import ArrowIcon from '../components/icons/ArrowIcon.vue'
-import ProductList from '../components/ProductList.vue'
+// import ProductList from '../components/ProductList.vue'
 import Section from '../components/Section.vue'
 import Separator from '../components/Separator.vue'
+import { Product } from '../types/product'
+import { Business } from '../types/business'
+import { useRoute } from 'vue-router'
 
 const currentSlide = ref(0)
+const { params } = useRoute()
+
+const product = ref<Product|null>()
+const business = ref<Business|null>()
 
 const slides = [
   "/images/thumbnails/slide1.jpg",
@@ -88,6 +93,23 @@ const slides = [
   "/images/thumbnails/slide5.jpg",
   "/images/thumbnails/slide6.avif",
 ]
+
+const getProductById = async (id: number): Promise<Product> => {
+  return fetch(`${import.meta.env.VITE_BASE_API}/products/${id}`)
+  .then(res => res.json())
+}
+
+const getBusinessById = async (id: number): Promise<Business> => {
+  return fetch(`${import.meta.env.VITE_BASE_API}/businesses/${id}`)
+  .then(res => res.json())
+}
+
+onMounted(async () => {
+  const productData = await getProductById(parseInt(params.id))
+  const businessData = await getBusinessById(productData.business)
+  product.value = productData
+  business.value = businessData
+})
 </script>
 
 <style scoped>

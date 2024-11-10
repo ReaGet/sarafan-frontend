@@ -13,7 +13,7 @@
 		</h2>
 		<div class="product-list">
 			<ProductCard
-				v-for="product in PRODUCTS"
+				v-for="product in products"
 				:key="product.id"
 				v-bind="product"
 			/>
@@ -24,12 +24,14 @@
 <script setup lang="ts">
 import ArrowIcon from './icons/ArrowIcon.vue';
 import ProductCard from './ProductCard.vue'
-import { PRODUCTS } from '../constants/products';
+// import { PRODUCTS } from '../constants/products';
+import { Product } from '../types/product';
 
 // TODO: возможно передавать в качестве пропсов категорию, количество товаров за раз и сам компонент уже отвечает за запросы и т.д.
 defineProps<{
 	title?: string
 	linkFollow?: string
+	products: Product[]
 }>()
 </script>
 
