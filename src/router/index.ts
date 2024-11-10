@@ -26,6 +26,14 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
+    path: '/me',
+    name: 'ProfilePage',
+    component: () => import('../pages/profile-page.vue'),
+    meta: {
+      layout: 'Default'
+    }
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: () => import('../pages/not-found-page.vue'),
