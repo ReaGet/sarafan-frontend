@@ -8,7 +8,7 @@
 				<img :src="`https://sarafanweb.ru${photos[0]}`" class="w-full h-full object-cover" alt="" loading="lazy">
 			</AspectRatio>
 			<h3 class="mt-4 text-[1.4rem]">{{ name }}</h3>
-			<Button className="gap-4 mt-6 hover:bg-gray-dark/50" @click.prevent>
+			<Button className="gap-4 mt-6" @click.prevent>
 				<CartIcon :size="16" />
 				<div>
 					<div v-if="price" class="text-[1.4rem] leading-[1.4rem] font-bold">{{ price }} ₽</div>

@@ -4,7 +4,7 @@
 			v-if="title"
 			class="mb-8 text-[2rem] font-bold"
 		>
-			<RouterLink v-if="linkFollow" :to="linkFollow" class="flex items-center gap-2">
+			<RouterLink v-if="to" :to="to" class="flex items-center gap-2">
 				{{ title }} <ArrowIcon />
 			</RouterLink>
 			<template v-else>
@@ -30,7 +30,7 @@ import { Product } from '../types/product';
 // TODO: возможно передавать в качестве пропсов категорию, количество товаров за раз и сам компонент уже отвечает за запросы и т.д.
 defineProps<{
 	title?: string
-	linkFollow?: string
+	to?: string
 	products: Product[]
 }>()
 </script>

@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import Section from '../components/Section.vue'
-import CategoryList from '../components/CategoryList.vue'
+// import CategoryList from '../components/CategoryList.vue'
 import ProductList from '../components/ProductList.vue'
 import { Product } from '../types/product';
 

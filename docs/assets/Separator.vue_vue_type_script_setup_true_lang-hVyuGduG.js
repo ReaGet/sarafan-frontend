@@ -1,0 +1,1 @@
+import{d as s,a as e,e as r,n,i as o,j as l}from"./index-DnqcZBLI.js";const m="/images/profile.jpg",_=s({__name:"Separator",props:{className:{}},setup(p){return(a,c)=>(e(),r("div",{class:n(o(l)("h-6 w-full bg-gray",a.className))},null,2))}});export{_,m as a};

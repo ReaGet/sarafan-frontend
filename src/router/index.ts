@@ -3,43 +3,42 @@ import { createWebHistory, createRouter, type RouteRecordRaw } from 'vue-router'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'Home',
+    name: 'HomePage',
     component: () => import('../pages/home-page.vue'),
-    meta: {
-      layout: 'Default'
-    }
   },
   {
     path: '/p/:id',
     name: 'ProductPage',
     component: () => import('../pages/product-page.vue'),
-    meta: {
-      layout: 'Default'
-    }
   },
   {
     path: '/business/:id',
     name: 'BusinessPage',
     component: () => import('../pages/business-page.vue'),
-    meta: {
-      layout: 'Default'
-    }
   },
   {
     path: '/me',
-    name: 'ProfilePage',
-    component: () => import('../pages/profile-page.vue'),
-    meta: {
-      layout: 'Default'
-    }
+    children: [
+      {
+        path: '',
+        name: 'ProfilePage',
+        component: () => import('../pages/profile/index.vue'),
+      },
+      {
+        path: 'business',
+        name: 'ProfileBusinessPage',
+        component: () => import('../pages/profile/business-page.vue'),
+        meta: {
+          layout: 'Profile',
+          title: 'Бизнесы'
+        }
+      }
+    ]
   },
   {
     path: '/:pathMatch(.*)*',
-    name: 'NotFound',
+    name: 'NotFoundPage',
     component: () => import('../pages/not-found-page.vue'),
-    meta: {
-      layout: 'Default'
-    }
   },
 ]
 

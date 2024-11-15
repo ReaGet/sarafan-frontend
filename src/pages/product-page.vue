@@ -105,7 +105,8 @@ const getBusinessById = async (id: number): Promise<Business> => {
 }
 
 onMounted(async () => {
-  const productData = await getProductById(parseInt(params.id))
+  const id = params.id as string || ''
+  const productData = await getProductById(parseInt(id))
   const businessData = await getBusinessById(productData.business)
   product.value = productData
   business.value = businessData

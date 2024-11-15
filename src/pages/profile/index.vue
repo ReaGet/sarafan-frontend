@@ -30,7 +30,7 @@
         v-for="item in profileNavigation"
         class="flex justify-between items-center h-16"
         :key="item.title"
-        :to="item.followLink"
+        :to="item.to"
       >
         <div class="flex items-center gap-4">
           {{ item.title }}
@@ -47,26 +47,40 @@
 </template>
 
 <script setup lang="ts">
-import ArrowIcon from '../components/icons/ArrowIcon.vue'
-import ReferalsIcon from '../components/icons/ReferalsIcon.vue'
-import HeartFilledIcon from '../components/icons/HeartFilledIcon.vue'
-import PurchaseIcon from '../components/icons/PurchaseIcon.vue'
-import Section from '../components/Section.vue';
-import Separator from '../components/Separator.vue';
+import ArrowIcon from '../../components/icons/ArrowIcon.vue'
+import ReferalsIcon from '../../components/icons/ReferalsIcon.vue'
+import HeartFilledIcon from '../../components/icons/HeartFilledIcon.vue'
+import PurchaseIcon from '../../components/icons/PurchaseIcon.vue'
+import Section from '../../components/Section.vue'
+import Separator from '../../components/Separator.vue'
 
-const profileNavigation = [
-  { title: 'Личная информация', followLink: '/' },
-  { title: 'Бизнесы', followLink: '/', count: 2 },
-  { title: 'Реферальная система', followLink: '/' },
-  { title: 'Избранное', followLink: '/', count: 16 },
-  { title: 'Покупки', followLink: '/', count: 32 },
-  { title: 'Отзывы', followLink: '/' },
-  { title: 'Настройки', followLink: '/' },
+type ToParam = {
+  name: string
+}
+
+type ProfileLink = {
+  title: string
+  to: ToParam
+  count?: number
+}
+
+const getToParam = (pageName: string): ToParam => ({
+  name: pageName
+})
+
+const profileNavigation: ProfileLink[] = [
+  { title: 'Личная информация', to: getToParam('HomePage'), },
+  { title: 'Бизнесы', to: getToParam('ProfileBusinessPage'), count: 2 },
+  { title: 'Реферальная система', to: getToParam('HomePage'), },
+  { title: 'Избранное', to: getToParam('HomePage'), count: 16 },
+  { title: 'Покупки', to: getToParam('HomePage'), count: 32 },
+  { title: 'Отзывы', to: getToParam('HomePage'), },
+  { title: 'Настройки', to: getToParam('HomePage'), },
 ]
 
 const featuresInfo = [
-  { title: 'Рефералы', icon: ReferalsIcon, followLink: '/', count: '7 рефералов' },
-  { title: 'Избранное', icon: HeartFilledIcon, followLink: '/', count: '16 товаров' },
-  { title: 'Покупки', icon: PurchaseIcon, followLink: '/', count: '32 покупки' },
+  { title: 'Рефералы', icon: ReferalsIcon, to: '/', count: '7 рефералов' },
+  { title: 'Избранное', icon: HeartFilledIcon, to: '/', count: '16 товаров' },
+  { title: 'Покупки', icon: PurchaseIcon, to: '/', count: '32 покупки' },
 ]
 </script>

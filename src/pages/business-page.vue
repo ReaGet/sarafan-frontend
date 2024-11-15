@@ -28,7 +28,7 @@
         <FilterIcon :size="24" />
       </Button>
     </div>
-    <ProductList />
+    <ProductList :products="[]" />
   </Section>
 </template>
 

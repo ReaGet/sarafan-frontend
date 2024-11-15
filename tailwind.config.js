@@ -17,6 +17,9 @@ export default {
         'gray': {
           DEFAULT: 'var(--gray)'
         },
+        'gray-hover': {
+          DEFAULT: 'var(--gray-hover)'
+        },
         'gray-dark': {
           DEFAULT: 'var(--gray-dark)'
         },

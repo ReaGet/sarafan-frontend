@@ -18,7 +18,7 @@ import { computed } from 'vue'
 
 const route = useRoute()
 const layout = computed(() => {
-  const layout = route?.meta?.layout
+  const layout = route?.meta?.layout || 'Default'
 
   if (layout) {
     return `${layout}Layout`
