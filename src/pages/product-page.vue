@@ -77,20 +77,22 @@ import Section from '@/components/ui/Section.vue'
 import Separator from '@/components/ui/Separator.vue'
 import { Product } from '@/core/entities/Product'
 import { Business } from '@/core/entities/Business'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 import ProductService from '@/services/ProductService'
 import BusinessService from '@/services/BusinessService'
 
 const currentSlide = ref(0)
 const router = useRouter()
-const { params } = useRoute()
 
 const product = ref<Product|null>()
 const business = ref<Business|null>()
 
+const props = defineProps<{
+  id: string
+}>()
+
 onMounted(async () => {
-  const id = params.id as string || ''
-  const productData = await ProductService.getById(id)
+  const productData = await ProductService.getById(props.id)
   if (!productData) {
     return  router.push({
       name: 'NotFoundPage'

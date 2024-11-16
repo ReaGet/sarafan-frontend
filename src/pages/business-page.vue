@@ -43,16 +43,17 @@ import Separator from '@/components/ui/Separator.vue'
 import { onMounted, ref } from 'vue'
 import { Business } from '@/core/entities/Business'
 import BusinessService from '@/services/BusinessService'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
-const { params } = useRoute()
 
 const business = ref<Business>()
+const props = defineProps<{
+  id: string
+}>()
 
 onMounted(async () => {
-  const id = params.id as string || ''
-  const data = await BusinessService.getById(id)
+  const data = await BusinessService.getById(props.id)
 
   if (!data) {
     return router.push({

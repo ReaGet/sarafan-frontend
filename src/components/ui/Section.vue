@@ -1,6 +1,6 @@
 <template>
   <div :class="cn(
-    'custom px-6 py-6 bg-white',
+    'px-6 py-6 bg-white',
     className
   )">
     <slot />

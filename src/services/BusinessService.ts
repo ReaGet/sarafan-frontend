@@ -1,4 +1,4 @@
-import { Business } from '@/core/entities/Business'
+import { CreateBusinessDto } from '@/core/repositories/BusinessRepository/dto/createBusinessDto'
 import { BusinessRepository } from '@/repositories/BusinessRepository'
 
 class BusinessService {
@@ -6,8 +6,15 @@ class BusinessService {
   constructor(repository: BusinessRepository) {
     this.repository = repository
   }
-  async create(_data: Partial<Business>) {
-    
+  async create(dto: CreateBusinessDto) {
+    try {
+      return await this.repository.create(dto)
+    } catch(e) {
+      console.log(`[create]: ${e}`)
+      return {
+        results: {}
+      }
+    }
   }
   async getAll() {
     try {

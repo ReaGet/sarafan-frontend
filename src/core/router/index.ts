@@ -7,14 +7,16 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/pages/home-page.vue'),
   },
   {
-    path: '/p/:id',
+    path: '/product/:id',
     name: 'ProductPage',
     component: () => import('@/pages/product-page.vue'),
+    props: true
   },
   {
     path: '/business/:id',
     name: 'BusinessPage',
     component: () => import('@/pages/business-page.vue'),
+    props: true
   },
   {
     path: '/me',
@@ -31,8 +33,19 @@ const routes: RouteRecordRaw[] = [
         meta: {
           layout: 'Profile',
           title: 'Бизнесы'
-        }
-      }
+        },
+        children: [
+          {
+            path: 'create',
+            name: 'ProfileCreateBusinessPage',
+            component: () => import('@/pages/profile/create-business-page.vue'),
+            meta: {
+              layout: 'Profile',
+              title: 'Создание бизнеса'
+            }
+          }
+        ]
+      },
     ]
   },
   {
@@ -45,4 +58,7 @@ const routes: RouteRecordRaw[] = [
 export const router = createRouter({
   history: createWebHistory(import.meta.env.VITE_BASE_PATH),
   routes,
+  scrollBehavior() {
+    return { top: 0 }
+  },
 })

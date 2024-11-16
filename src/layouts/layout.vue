@@ -1,6 +1,6 @@
 <template>
   <component :is="layout">
-    <router-view />
+    <router-view :key="route.path" />
   </component>
 </template>
 
@@ -17,6 +17,7 @@ import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 
 const route = useRoute()
+
 const layout = computed(() => {
   const layout = route?.meta?.layout || 'Default'
 

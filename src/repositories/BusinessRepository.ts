@@ -1,12 +1,13 @@
 import { FetchClient, type GetAllResponse } from '@/lib/fetchClient'
 import type { IBusinessRepository } from '@/core/repositories/BusinessRepository'
 import type { Business } from '@/core/entities/Business'
+import { CreateBusinessDto } from '@/core/repositories/BusinessRepository/dto/createBusinessDto'
 
 const basePath = '/businesses/'
 const fetchClient = new FetchClient()
 
 export class BusinessRepository implements IBusinessRepository {
-  async create(dto: any): Promise<Business> {
+  async create(dto: CreateBusinessDto): Promise<Business> {
     return fetchClient.post({
       url: basePath,
       body: dto

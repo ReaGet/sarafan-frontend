@@ -2,10 +2,12 @@
   <Section class="rounded-b-3xl">
     <div class="flex justify-between items-center">
       <h2 class="text-[2rem] font-bold">Бизнесы</h2>
-      <Button class="h-auto py-2 text-[1.4rem] rounded-xl">
-        <PlusIcon className="mr-2" :size="16" />
-        Добавить
-      </Button>
+      <RouterLink :to="{ name: 'ProfileCreateBusinessPage' }">
+        <Button class="h-auto py-2 text-[1.4rem] rounded-xl">
+          <PlusIcon className="mr-2" :size="16" />
+          Добавить
+        </Button>
+      </RouterLink>
     </div>
 
     <RouterLink

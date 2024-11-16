@@ -1,6 +1,6 @@
 <template>
 	<div class="main-search-container">
-		<input type="text" class="main-search" placeholder="Искать у продавца">
+		<input type="text" class="main-search" placeholder="Искать в Сарафане">
 	</div>
 </template>
 
@@ -34,5 +34,7 @@
 	border-radius: 12px;
 	padding-left: 46px;
 	position: relative;
+	font-size: 16px;
+	line-height: 16px;
 }
 </style>
