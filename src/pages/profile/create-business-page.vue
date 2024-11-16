@@ -8,7 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import ArrowIcon from '@/components/icons/ArrowIcon.vue'
 import Section from '@/components/ui/Section.vue'
 import Separator from '@/components/ui/Separator.vue'
 

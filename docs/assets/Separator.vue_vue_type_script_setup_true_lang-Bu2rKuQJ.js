@@ -1,0 +1,1 @@
+import{d as e,a as s,e as n,n as r,i as o,j as l}from"./index-BzLg2KDA.js";const m=e({__name:"Separator",props:{className:{}},setup(c){return(a,p)=>(s(),n("div",{class:r(o(l)("h-6 w-full bg-gray",a.className))},null,2))}});export{m as _};
