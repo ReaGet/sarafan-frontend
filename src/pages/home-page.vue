@@ -15,12 +15,14 @@ import Section from '../components/Section.vue'
 // import CategoryList from '../components/CategoryList.vue'
 import ProductList from '../components/ProductList.vue'
 import { Product } from '../types/product';
+import { ProductRepository } from '../repositories/product';
+import { FetchClient } from '../api';
 
 const products = ref<Product[]>([])
+const productRepository = new ProductRepository(new FetchClient())
 
 const getProducts = async (): Promise<Product[]> => {
-  return fetch(`${import.meta.env.VITE_BASE_API}/products/`)
-  .then(res => res.json())
+  return productRepository.getAll<Product>()
   .then(data => data.results)
 }
 
