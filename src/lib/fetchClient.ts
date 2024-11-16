@@ -5,6 +5,13 @@ type FetchParams = {
   headers?: Record<string, any>
 }
 
+export type GetAllResponse<T> = {
+  count: number
+  next: string
+  previous: string
+  results: T[]
+}
+
 export interface FetchClient {
   get<T>(params: FetchParams): Promise<T>
   post<T>(params: FetchParams): Promise<T>
@@ -27,7 +34,10 @@ export class FetchClient implements FetchClient {
     const { url, headers, body } = params
     const finalUrl = `${getApiUrl(url)}`
     return await fetch(finalUrl, {
-      headers,
+      headers: {
+        method: 'POST',
+        ...headers
+      },
       body: JSON.stringify(body || {})
     }).then(res => res.json())
   }

@@ -8,12 +8,17 @@
       </Button>
     </div>
 
-    <RouterLink to="/" class="flex flex-col mt-12">
+    <RouterLink
+      v-for="business in businesses"
+      :key="business.id"
+      to="/"
+      class="flex flex-col mt-12"
+    >
       <div class="flex items-center">
         <div class="w-[48px] h-[48px] rounded-xl overflow-hidden">
           <img class="w-full h-full object-cover" src="/images/profile.jpg" alt="" width="48" height="48">
         </div>
-        <span class="ml-6 text-[1.6rem]">Hugoboss</span>
+        <span class="ml-6 text-[1.6rem]">{{ business.name }}</span>
         <ArrowIcon className="ml-auto text-gray-dark" />
       </div>
     </RouterLink>
@@ -22,10 +27,19 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
 import Section from '../../components/Section.vue'
 import Button from '../../components/ui/Button.vue'
 import PlusIcon from '../../components/icons/PlusIcon.vue'
-import ArrowIcon from '../../components/icons/ArrowIcon.vue';
-import Separator from '../../components/Separator.vue';
+import ArrowIcon from '../../components/icons/ArrowIcon.vue'
+import Separator from '../../components/Separator.vue'
+import { Business } from '../../core/entities/Business'
+import BusinessService from '../../services/BusinessService'
+
+const businesses = ref<Business[]>([])
+
+onMounted(async () => {
+  businesses.value = (await BusinessService.getAll()).results
+})
 
 </script>

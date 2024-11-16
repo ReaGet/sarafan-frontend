@@ -1,11 +1,11 @@
 export type Product = {
+  id: number
   business: number
   color: number
   created: string
   description: string
   discount: number
   height: number
-  id: number
   length: number
   name: string
   price: number

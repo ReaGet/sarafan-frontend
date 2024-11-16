@@ -75,39 +75,29 @@ import ArrowIcon from '../components/icons/ArrowIcon.vue'
 // import ProductList from '../components/ProductList.vue'
 import Section from '../components/Section.vue'
 import Separator from '../components/Separator.vue'
-import { Product } from '../types/product'
-import { Business } from '../types/business'
-import { useRoute } from 'vue-router'
+import { Product } from '../core/entities/Product'
+import { Business } from '../core/entities/Business'
+import { useRoute, useRouter } from 'vue-router'
+import ProductService from '../services/ProductService'
+import BusinessService from '../services/BusinessService'
 
 const currentSlide = ref(0)
+const router = useRouter()
 const { params } = useRoute()
 
 const product = ref<Product|null>()
 const business = ref<Business|null>()
 
-// const slides = [
-//   "/images/thumbnails/slide1.jpg",
-//   "/images/thumbnails/slide2.webp",
-//   "/images/thumbnails/slide3.avif",
-//   "/images/thumbnails/slide4.avif",
-//   "/images/thumbnails/slide5.jpg",
-//   "/images/thumbnails/slide6.avif",
-// ]
-
-const getProductById = async (id: number): Promise<Product> => {
-  return fetch(`${import.meta.env.VITE_BASE_API}/products/${id}`)
-  .then(res => res.json())
-}
-
-const getBusinessById = async (id: number): Promise<Business> => {
-  return fetch(`${import.meta.env.VITE_BASE_API}/businesses/${id}`)
-  .then(res => res.json())
-}
-
 onMounted(async () => {
   const id = params.id as string || ''
-  const productData = await getProductById(parseInt(id))
-  const businessData = await getBusinessById(productData.business)
+  const productData = await ProductService.getById(id)
+  if (!productData) {
+    return  router.push({
+      name: 'NotFoundPage'
+    })
+  }
+
+  const businessData = await BusinessService.getById(productData.id)
   product.value = productData
   business.value = businessData
 })

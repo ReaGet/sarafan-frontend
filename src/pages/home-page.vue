@@ -14,20 +14,13 @@ import { onMounted, ref } from 'vue'
 import Section from '../components/Section.vue'
 // import CategoryList from '../components/CategoryList.vue'
 import ProductList from '../components/ProductList.vue'
-import { Product } from '../types/product';
-import { ProductRepository } from '../repositories/product';
-import { FetchClient } from '../api';
+import { Product } from '../core/entities/Product'
+import ProductService from '../services/ProductService'
 
 const products = ref<Product[]>([])
-const productRepository = new ProductRepository(new FetchClient())
-
-const getProducts = async (): Promise<Product[]> => {
-  return productRepository.getAll<Product>()
-  .then(data => data.results)
-}
 
 onMounted(async () => {
-  products.value = await getProducts()
+  products.value = (await ProductService.getAll()).results
 })
 
 </script>

@@ -5,7 +5,7 @@
         <div class="w-36 h-36 rounded-xl overflow-hidden">
           <img class="h-full w-full object-cover" width="90" height="90" src="/images/profile.jpg" />
         </div>
-        <div class="text-[2.2rem] font-medium">Hugoboss</div>
+        <div class="text-[2.2rem] font-medium">{{ business?.name }}</div>
       </div>
   
       <HeartIcon :size="24" />
@@ -13,7 +13,7 @@
 
     <div class="mt-12 text-[1.6rem]">
       <p class="inline text-[#636363] line-clamp-5">
-        Huawei - китайский производитель и ведущий мировой поставщик интеллектуальных устройств и инфраструктуры в области информационно-коммуникационных технологий...
+        description  
       </p>
       <button class="font-bold" type="button">Читать</button>
     </div>
@@ -40,4 +40,26 @@ import SortIcon from '../components/icons/SortIcon.vue'
 import FilterIcon from '../components/icons/FilterIcon.vue'
 import Section from '../components/Section.vue'
 import Separator from '../components/Separator.vue'
+import { onMounted, ref } from 'vue'
+import { Business } from '../core/entities/Business'
+import BusinessService from '../services/BusinessService'
+import { useRoute, useRouter } from 'vue-router'
+
+const router = useRouter()
+const { params } = useRoute()
+
+const business = ref<Business>()
+
+onMounted(async () => {
+  const id = params.id as string || ''
+  const data = await BusinessService.getById(id)
+
+  if (!data) {
+    return router.push({
+      name: 'NotFoundPage'
+    })
+  }
+
+  business.value = data
+})
 </script>
