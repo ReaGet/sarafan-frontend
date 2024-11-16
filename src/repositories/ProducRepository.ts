@@ -1,6 +1,6 @@
-import { FetchClient, GetAllResponse } from '../lib/fetchClient'
-import type { IProductRepository } from '../core/repositories/Product'
-import { Product } from '../core/entities/Product'
+import { FetchClient, GetAllResponse } from '@/lib/fetchClient'
+import type { IProductRepository } from '@/core/repositories/Product'
+import { Product } from '@/core/entities/Product'
 
 const basePath = '/products/'
 const fetchClient = new FetchClient()

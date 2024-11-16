@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { Product } from '../core/entities/Product'
+import { Product } from '@/core/entities/Product'
 import CartIcon from './icons/CartIcon.vue'
 import AspectRatio from './ui/AspectRatio.vue'
 import Button from './ui/Button.vue'

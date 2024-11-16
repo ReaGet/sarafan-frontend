@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import BaseIcon from './BaseIcon.vue';
-import { IconProps } from '../../types/icon';
+import BaseIcon from './BaseIcon.vue'
+import { IconProps } from '@/types/icon'
 
 const props = withDefaults(defineProps<IconProps>(), {
   viewBox: '0 0 24 24'

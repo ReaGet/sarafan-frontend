@@ -13,6 +13,6 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import Header from '../components/Header.vue'
-import Navigation from '../components/Navigation.vue'
+import Header from '@/components/Header.vue'
+import Navigation from '@/components/Navigation.vue'
 </script>

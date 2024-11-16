@@ -28,13 +28,13 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import Section from '../../components/Section.vue'
-import Button from '../../components/ui/Button.vue'
-import PlusIcon from '../../components/icons/PlusIcon.vue'
-import ArrowIcon from '../../components/icons/ArrowIcon.vue'
-import Separator from '../../components/Separator.vue'
-import { Business } from '../../core/entities/Business'
-import BusinessService from '../../services/BusinessService'
+import Button from '@/components/ui/Button.vue'
+import PlusIcon from '@/components/icons/PlusIcon.vue'
+import ArrowIcon from '@/components/icons/ArrowIcon.vue'
+import Section from '@/components/ui/Section.vue'
+import Separator from '@/components/ui/Separator.vue'
+import { Business } from '@/core/entities/Business'
+import BusinessService from '@/services/BusinessService'
 
 const businesses = ref<Business[]>([])
 

@@ -47,12 +47,12 @@
 </template>
 
 <script setup lang="ts">
-import ArrowIcon from '../../components/icons/ArrowIcon.vue'
-import ReferalsIcon from '../../components/icons/ReferalsIcon.vue'
-import HeartFilledIcon from '../../components/icons/HeartFilledIcon.vue'
-import PurchaseIcon from '../../components/icons/PurchaseIcon.vue'
-import Section from '../../components/Section.vue'
-import Separator from '../../components/Separator.vue'
+import ArrowIcon from '@/components/icons/ArrowIcon.vue'
+import ReferalsIcon from '@/components/icons/ReferalsIcon.vue'
+import HeartFilledIcon from '@/components/icons/HeartFilledIcon.vue'
+import PurchaseIcon from '@/components/icons/PurchaseIcon.vue'
+import Section from '@/components/ui/Section.vue'
+import Separator from '@/components/ui/Separator.vue'
 
 type ToParam = {
   name: string

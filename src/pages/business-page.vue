@@ -33,16 +33,16 @@
 </template>
 
 <script setup lang="ts">
-import HeartIcon from '../components/icons/HeartIcon.vue'
-import ProductList from '../components/ProductList.vue'
-import Button from '../components/ui/Button.vue'
-import SortIcon from '../components/icons/SortIcon.vue'
-import FilterIcon from '../components/icons/FilterIcon.vue'
-import Section from '../components/Section.vue'
-import Separator from '../components/Separator.vue'
+import HeartIcon from '@/components/icons/HeartIcon.vue'
+import ProductList from '@/components/ProductList.vue'
+import Button from '@/components/ui/Button.vue'
+import SortIcon from '@/components/icons/SortIcon.vue'
+import FilterIcon from '@/components/icons/FilterIcon.vue'
+import Section from '@/components/ui/Section.vue'
+import Separator from '@/components/ui/Separator.vue'
 import { onMounted, ref } from 'vue'
-import { Business } from '../core/entities/Business'
-import BusinessService from '../services/BusinessService'
+import { Business } from '@/core/entities/Business'
+import BusinessService from '@/services/BusinessService'
 import { useRoute, useRouter } from 'vue-router'
 
 const router = useRouter()

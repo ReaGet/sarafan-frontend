@@ -1,5 +1,5 @@
-import { GetAllResponse } from '../../../lib/fetchClient'
-import { Business } from '../../entities/Business'
+import { GetAllResponse } from '@/lib/fetchClient'
+import { Business } from '@/core/entities/Business'
 
 export interface IBusinessRepository {
   create(dto: any): Promise<Business>

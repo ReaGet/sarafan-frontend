@@ -4,17 +4,17 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'HomePage',
-    component: () => import('../pages/home-page.vue'),
+    component: () => import('@/pages/home-page.vue'),
   },
   {
     path: '/p/:id',
     name: 'ProductPage',
-    component: () => import('../pages/product-page.vue'),
+    component: () => import('@/pages/product-page.vue'),
   },
   {
     path: '/business/:id',
     name: 'BusinessPage',
-    component: () => import('../pages/business-page.vue'),
+    component: () => import('@/pages/business-page.vue'),
   },
   {
     path: '/me',
@@ -22,12 +22,12 @@ const routes: RouteRecordRaw[] = [
       {
         path: '',
         name: 'ProfilePage',
-        component: () => import('../pages/profile/index.vue'),
+        component: () => import('@/pages/profile/index.vue'),
       },
       {
         path: 'business',
         name: 'ProfileBusinessPage',
-        component: () => import('../pages/profile/business-page.vue'),
+        component: () => import('@/pages/profile/business-page.vue'),
         meta: {
           layout: 'Profile',
           title: 'Бизнесы'
@@ -38,7 +38,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFoundPage',
-    component: () => import('../pages/not-found-page.vue'),
+    component: () => import('@/pages/not-found-page.vue'),
   },
 ]
 

@@ -1,5 +1,5 @@
-import { Product } from '../core/entities/Product'
-import { ProductRepository } from '../repositories/ProducRepository'
+import { Product } from '@/core/entities/Product'
+import { ProductRepository } from '@/repositories/ProducRepository'
 
 class ProductService {
   private repository: ProductRepository;

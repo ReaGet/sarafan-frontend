@@ -1,5 +1,5 @@
-import { Business } from '../core/entities/Business'
-import { BusinessRepository } from '../repositories/BusinessRepository'
+import { Business } from '@/core/entities/Business'
+import { BusinessRepository } from '@/repositories/BusinessRepository'
 
 class BusinessService {
   private repository: BusinessRepository;

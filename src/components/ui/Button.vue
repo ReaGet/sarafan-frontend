@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from '../../lib/cn';
+import { cn } from '@/lib/cn'
 
 defineProps<{
   className?: string

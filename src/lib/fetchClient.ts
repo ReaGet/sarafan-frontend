@@ -1,4 +1,5 @@
 type FetchBody = Record<string, any>
+
 type FetchParams = {
   url: string
   body?: FetchBody

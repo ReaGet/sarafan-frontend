@@ -11,6 +11,6 @@
 </template>
 
 <script setup lang="ts">
-import AspectRatio from '../components/ui/AspectRatio.vue'
+import AspectRatio from '@/components/ui/AspectRatio.vue'
 
 </script>

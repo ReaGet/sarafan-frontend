@@ -18,7 +18,7 @@
 import { useRoute, useRouter } from 'vue-router'
 import Button from './ui/Button.vue'
 import ArrowBackIcon from './icons/ArrowBackIcon.vue'
-import { cn } from '../lib/cn'
+import { cn } from '@/lib/cn'
 import { computed } from 'vue';
 
 const router = useRouter(),

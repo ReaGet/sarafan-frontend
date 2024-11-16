@@ -24,8 +24,8 @@
 <script setup lang="ts">
 import ArrowIcon from './icons/ArrowIcon.vue';
 import ProductCard from './ProductCard.vue'
-// import { PRODUCTS } from '../constants/products';
-import { Product } from '../core/entities/Product'
+// import { PRODUCTS } from '@/constants/products';
+import { Product } from '@/core/entities/Product'
 
 // TODO: возможно передавать в качестве пропсов категорию, количество товаров за раз и сам компонент уже отвечает за запросы и т.д.
 defineProps<{

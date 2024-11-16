@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { cn } from '../../lib/cn';
-import { IconProps } from '../../types/icon';
+import { cn } from '@/lib/cn';
+import { IconProps } from '@/types/icon';
 
 withDefaults(defineProps<IconProps>(), {
   width: 24,

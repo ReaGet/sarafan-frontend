@@ -69,17 +69,17 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import AspectRatio from '../components/ui/AspectRatio.vue'
-import { cn } from '../lib/cn';
-import ArrowIcon from '../components/icons/ArrowIcon.vue'
-// import ProductList from '../components/ProductList.vue'
-import Section from '../components/Section.vue'
-import Separator from '../components/Separator.vue'
-import { Product } from '../core/entities/Product'
-import { Business } from '../core/entities/Business'
+import AspectRatio from '@/components/ui/AspectRatio.vue'
+import { cn } from '@/lib/cn';
+import ArrowIcon from '@/components/icons/ArrowIcon.vue'
+// import ProductList from '@/components/ProductList.vue'
+import Section from '@/components/ui/Section.vue'
+import Separator from '@/components/ui/Separator.vue'
+import { Product } from '@/core/entities/Product'
+import { Business } from '@/core/entities/Business'
 import { useRoute, useRouter } from 'vue-router'
-import ProductService from '../services/ProductService'
-import BusinessService from '../services/BusinessService'
+import ProductService from '@/services/ProductService'
+import BusinessService from '@/services/BusinessService'
 
 const currentSlide = ref(0)
 const router = useRouter()

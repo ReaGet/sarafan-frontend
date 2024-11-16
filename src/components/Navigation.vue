@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { NavigationItem } from '../types/navigation'
+import { NavigationItem } from '@/types/navigation'
 import { RouterLink } from 'vue-router'
 import HomeIcon from './icons/HomeIcon.vue'
 import SearchIcon from './icons/SearchIcon.vue'

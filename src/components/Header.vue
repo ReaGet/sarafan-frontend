@@ -35,12 +35,12 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
 import { computed } from 'vue'
-import Search from '../components/Search.vue'
+import Search from '@/components/Search.vue'
 import Button from './ui/Button.vue'
 import ArrowBackIcon from './icons/ArrowBackIcon.vue'
 import ShareIcon from './icons/ShareIcon.vue'
 import HeartIcon from './icons/HeartIcon.vue'
-import { cn } from '../lib/cn'
+import { cn } from '@/lib/cn'
 
 const route = useRoute(),
   router = useRouter()
