@@ -1,1 +1,0 @@
-import{d as s,a,e as o,z as n,n as t,i as r,j as c,y as p}from"./index-BzLg2KDA.js";const l=s({__name:"Section",props:{className:{}},setup(d){return(e,i)=>(a(),o("div",{class:t(r(c)("px-6 py-6 bg-white",e.className))},[n(e.$slots,"default",{},void 0,!0)],2))}}),m=p(l,[["__scopeId","data-v-71ddf875"]]);export{m as S};
