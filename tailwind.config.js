@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         'primary': 'var(--primary)',
+        'primary-hover': 'var(--primary-hover)',
         'green': {
           DEFAULT: 'var(--green)'
         },

@@ -35,8 +35,9 @@ export class FetchClient implements FetchClient {
     const { url, headers, body } = params
     const finalUrl = `${getApiUrl(url)}`
     return await fetch(finalUrl, {
+      method: 'POST',
       headers: {
-        method: 'POST',
+        'Content-Type': 'application/json',
         ...headers
       },
       body: JSON.stringify(body || {})

@@ -34,17 +34,15 @@ const routes: RouteRecordRaw[] = [
           layout: 'Profile',
           title: 'Бизнесы'
         },
-        children: [
-          {
-            path: 'create',
-            name: 'ProfileCreateBusinessPage',
-            component: () => import('@/pages/profile/create-business-page.vue'),
-            meta: {
-              layout: 'Profile',
-              title: 'Создание бизнеса'
-            }
-          }
-        ]
+      },
+      {
+        path: 'business/create',
+        name: 'ProfileCreateBusinessPage',
+        component: () => import('@/pages/profile/create-business-page.vue'),
+        meta: {
+          layout: 'Profile',
+          title: 'Создание бизнеса'
+        }
       },
     ]
   },
