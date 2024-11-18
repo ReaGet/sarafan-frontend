@@ -5,7 +5,7 @@
         <div class="w-[44px] h-[44px] rounded-xl overflow-hidden">
           <img class="h-full w-full object-cover" width="44" height="44" src="/images/profile.jpg" />
         </div>
-        <div class="text-[1.6rem] font-medium">Hugoboss</div>
+        <div class="text-[1.6rem] font-medium">{{ tg?.initDataUnsafe?.user?.username || 'unknown' }}</div>
       </div>
   
       <ArrowIcon :size="24" className="text-gray-dark" />
@@ -53,6 +53,8 @@ import HeartFilledIcon from '@/components/icons/HeartFilledIcon.vue'
 import PurchaseIcon from '@/components/icons/PurchaseIcon.vue'
 import Section from '@/components/ui/Section.vue'
 import Separator from '@/components/ui/Separator.vue'
+
+const tg = window.Telegram?.WebApp
 
 type ToParam = {
   name: string

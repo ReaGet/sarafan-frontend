@@ -19,6 +19,7 @@
         placeholder="Описание"
         v-model="description"
         ></textarea>
+      <div v-if="errorText">Error: {{ errorText }}</div>
       <Button
         className="bg-primary hover:bg-primary-hover rounded-xl text-[1.4rem] text-white"
       >Создать бизнес</Button>
@@ -37,11 +38,13 @@ import { cn } from '@/lib/cn'
 import BusinessService from '@/services/BusinessService'
 
 const router = useRouter()
+const tg = window.Telegram?.WebApp
 
 const name = ref(''),
   description = ref(''),
   isFormDirty = ref(false),
-  isLoading = ref(false)
+  isLoading = ref(false),
+  errorText = ref('')
 
 const handleSubmit = async (_event: Event) => {
   if (!name.value.length || !description.value.length || isLoading.value) {
@@ -54,14 +57,16 @@ const handleSubmit = async (_event: Event) => {
   await BusinessService.create({
     name: name.value,
     blocking: false,
-    owner: 107324410
+    owner: tg.initDataUnsafe?.user?.id || -1
   }).then((res) => {
     if ('detail' in res) {
+      errorText.value = res.detail as string
       return console.log('[error]', res.detail)
     }
     router.push({
       name: 'ProfileBusinessPage'
     })
+    errorText.value = ''
   })
 }
 
