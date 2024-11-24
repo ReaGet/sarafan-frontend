@@ -53,8 +53,9 @@ import HeartFilledIcon from '@/components/icons/HeartFilledIcon.vue'
 import PurchaseIcon from '@/components/icons/PurchaseIcon.vue'
 import Section from '@/components/ui/Section.vue'
 import Separator from '@/components/ui/Separator.vue'
+import { useTelegram } from '@/hooks/useTelegram'
 
-const tg = window.Telegram?.WebApp
+const { tg } = useTelegram()
 
 type ToParam = {
   name: string
@@ -71,13 +72,13 @@ const getToParam = (pageName: string): ToParam => ({
 })
 
 const profileNavigation: ProfileLink[] = [
-  { title: 'Личная информация', to: getToParam('HomePage'), },
-  { title: 'Бизнесы', to: getToParam('ProfileBusinessPage'), count: 2 },
+  // { title: 'Личная информация', to: getToParam('HomePage'), },
+  { title: 'Бизнесы', to: getToParam('ProfileAllBusinessPage'), },
   { title: 'Реферальная система', to: getToParam('HomePage'), },
-  { title: 'Избранное', to: getToParam('HomePage'), count: 16 },
-  { title: 'Покупки', to: getToParam('HomePage'), count: 32 },
-  { title: 'Отзывы', to: getToParam('HomePage'), },
-  { title: 'Настройки', to: getToParam('HomePage'), },
+  // { title: 'Избранное', to: getToParam('HomePage'), count: 16 },
+  // { title: 'Покупки', to: getToParam('HomePage'), count: 32 },
+  // { title: 'Отзывы', to: getToParam('HomePage'), },
+  // { title: 'Настройки', to: getToParam('HomePage'), },
 ]
 
 const featuresInfo = [

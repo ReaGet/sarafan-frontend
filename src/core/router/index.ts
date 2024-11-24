@@ -28,8 +28,8 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: 'business',
-        name: 'ProfileBusinessPage',
-        component: () => import('@/pages/profile/business-page.vue'),
+        name: 'AllProfileAllBusinessPage',
+        component: () => import('@/pages/profile/all-businesses-page.vue'),
         meta: {
           layout: 'Profile',
           title: 'Бизнесы'
@@ -43,6 +43,26 @@ const routes: RouteRecordRaw[] = [
           layout: 'Profile',
           title: 'Создание бизнеса'
         }
+      },
+      {
+        path: 'business/:businessId',
+        name: 'ProfileBusinessPage',
+        component: () => import('@/pages/profile/business-page.vue'),
+        meta: {
+          layout: 'Profile',
+          title: 'Бизнес'
+        },
+        props: true
+      },
+      {
+        path: 'business/:businessId/create',
+        name: 'ProfileCreateProductPage',
+        component: () => import('@/pages/profile/create-product-page.vue'),
+        meta: {
+          layout: 'Profile',
+          title: 'Создание товара'
+        },
+        props: true,
       },
     ]
   },

@@ -1,4 +1,4 @@
-import { Product } from '@/core/entities/Product'
+import { CreateProductDto } from '@/core/repositories/Product/dto/createProductDto'
 import { ProductRepository } from '@/repositories/ProducRepository'
 
 class ProductService {
@@ -6,8 +6,13 @@ class ProductService {
   constructor(repository: ProductRepository) {
     this.repository = repository
   }
-  async create(_data: Partial<Product>) {
-    
+  async create(dto: CreateProductDto) {
+    try {
+      return await this.repository.create(dto)
+    } catch(e) {
+      console.log(`[create]: ${e}`)
+      return {}
+    }
   }
   async getAll() {
     try {
@@ -17,6 +22,18 @@ class ProductService {
       return {
         results: []
       }
+    }
+  }
+  async getAllByBusinessId(id: string) {
+    try {
+      const response = await this.repository.getAllByBusinessId(id)
+      if ('detail' in response) {
+        return null
+      }
+      return response
+    } catch(e) {
+      console.log(`[getById]: ${e}`)
+      return null
     }
   }
   async getById(id: string) {

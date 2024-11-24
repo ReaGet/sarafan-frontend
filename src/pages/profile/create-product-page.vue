@@ -2,7 +2,7 @@
   <Separator />
   <Section class="rounded-b-3xl">
     <form @submit.prevent="handleSubmit" class="flex flex-col gap-6">
-      <Input placeholder="Название бизнеса" :error="isNameError" v-model="name" />
+      <Input placeholder="Название товара" :error="isNameError" v-model="name" />
       <Textarea placeholder="Описание" v-model="description" :error="isDescError" />
       <div v-if="errorText">Error: {{ errorText }}</div>
       <Button
@@ -26,6 +26,10 @@ import BusinessService from '@/services/BusinessService'
 import { useTelegram } from '@/hooks/useTelegram'
 
 const router = useRouter()
+const props = defineProps<{
+  businessId: string
+}>()
+
 const { tg } = useTelegram()
 
 const name = ref(''),
@@ -52,7 +56,7 @@ const handleSubmit = async (_event: Event) => {
       return console.log('[error]', res.detail)
     }
     router.push({
-      name: 'AllProfileAllBusinessPage'
+      name: 'ProfileBusinessPage'
     })
     errorText.value = ''
   })
