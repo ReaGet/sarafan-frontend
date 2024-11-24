@@ -7,6 +7,8 @@
       )"
       :placeholder="placeholder"
       v-model="model"
+      :type="type"
+      :required="required"
     />
     <span v-if="error && errorMessage" class="text-[1.4rem] text-red-500">{{ errorMessage }}</span>
   </div>
@@ -20,9 +22,13 @@ withDefaults(defineProps<{
   placeholder: string
   error?: boolean
   errorMessage?: string
+  type?: string
+  required?: boolean
 }>(), {
   error: false,
-  errorMessage: ''
+  errorMessage: '',
+  type: 'text',
+  required: false
 })
 
 </script>

@@ -26,7 +26,7 @@ import BusinessService from '@/services/BusinessService'
 import { useTelegram } from '@/hooks/useTelegram'
 
 const router = useRouter()
-const { tg } = useTelegram()
+const { userId } = useTelegram()
 
 const name = ref(''),
   description = ref(''),
@@ -45,7 +45,7 @@ const handleSubmit = async (_event: Event) => {
   await BusinessService.create({
     name: name.value,
     blocking: false,
-    owner: tg.initDataUnsafe?.user?.id || 107324410
+    owner: userId,
   }).then((res) => {
     if ('detail' in res) {
       errorText.value = res.detail as string

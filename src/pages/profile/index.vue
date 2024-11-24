@@ -5,7 +5,7 @@
         <div class="w-[44px] h-[44px] rounded-xl overflow-hidden">
           <img class="h-full w-full object-cover" width="44" height="44" src="/images/profile.jpg" />
         </div>
-        <div class="text-[1.6rem] font-medium">{{ tg?.initDataUnsafe?.user?.username || 'unknown' }}</div>
+        <div class="text-[1.6rem] font-medium">{{ username }}</div>
       </div>
   
       <ArrowIcon :size="24" className="text-gray-dark" />
@@ -55,7 +55,7 @@ import Section from '@/components/ui/Section.vue'
 import Separator from '@/components/ui/Separator.vue'
 import { useTelegram } from '@/hooks/useTelegram'
 
-const { tg } = useTelegram()
+const { username } = useTelegram()
 
 type ToParam = {
   name: string
