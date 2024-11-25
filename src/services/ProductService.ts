@@ -1,4 +1,5 @@
 import { CreateProductDto } from '@/core/repositories/Product/dto/createProductDto'
+import { UpdateProductDto } from '@/core/repositories/Product/dto/updateProductDto';
 import { ProductRepository } from '@/repositories/ProducRepository'
 
 class ProductService {
@@ -9,6 +10,14 @@ class ProductService {
   async create(dto: CreateProductDto) {
     try {
       return await this.repository.create(dto)
+    } catch(e) {
+      console.log(`[create]: ${e}`)
+      return {}
+    }
+  }
+  async update(productId: string, dto: Partial<UpdateProductDto>) {
+    try {
+      return await this.repository.update(productId, dto)
     } catch(e) {
       console.log(`[create]: ${e}`)
       return {}

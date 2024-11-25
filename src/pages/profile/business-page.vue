@@ -13,12 +13,15 @@
     <RouterLink
       v-for="product in products"
       :key="product.id"
-      to="/"
+      :to="{
+        name: 'ProfileEditProductPage',
+        params: { productId: product.id }
+      }"
       class="flex flex-col mt-12"
     >
       <div class="flex items-center">
         <div class="w-[48px] h-[48px] rounded-xl overflow-hidden">
-          <Image class="w-full h-full object-cover" src="/images/profil2e.jpg" alt="" width="48" height="48" />
+          <Image className="w-full h-full object-cover" src="/images/profil2e.jpg" alt="" width="48" height="48" />
         </div>
         <span class="ml-6 text-[1.6rem]">{{ product.name }}</span>
         <ArrowIcon className="ml-auto text-gray-dark" />

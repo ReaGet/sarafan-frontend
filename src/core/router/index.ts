@@ -64,6 +64,16 @@ const routes: RouteRecordRaw[] = [
         },
         props: true,
       },
+      {
+        path: 'business/:businessId/edit/:productId',
+        name: 'ProfileEditProductPage',
+        component: () => import('@/pages/profile/edit-product-page.vue'),
+        meta: {
+          layout: 'Profile',
+          title: 'Редактирование продукт'
+        },
+        props: true,
+      },
     ]
   },
   {

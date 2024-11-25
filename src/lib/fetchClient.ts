@@ -43,6 +43,18 @@ export class FetchClient implements FetchClient {
       body: JSON.stringify(body || {})
     }).then(res => res.json())
   }
+  async update<T>(params: FetchParams): Promise<T> {
+    const { url, headers, body } = params
+    const finalUrl = `${getApiUrl(url)}`
+    return await fetch(finalUrl, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        ...headers
+      },
+      body: JSON.stringify(body || {})
+    }).then(res => res.json())
+  }
 }
 
 const getApiUrl = (url: string) => {

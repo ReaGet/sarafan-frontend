@@ -1,7 +1,7 @@
 <template>
   <Separator />
-  <Section class="rounded-b-3xl">
-    <ProductForm @submit="handleSubmit" submitButton="Создать товар" />
+  <Section className="rounded-b-3xl">
+    <ProductForm @submit="handleSubmit" submitButton="Сохранить" v-bind="productValues" />
   </Section>
   <Separator />
   <Separator />
@@ -13,26 +13,37 @@ import Section from '@/components/ui/Section.vue'
 import Separator from '@/components/ui/Separator.vue'
 import ProductForm from '@/components/forms/ProductForm.vue'
 import ProductService from '@/services/ProductService'
-import { ref } from 'vue'
+import { onMounted, reactive, ref } from 'vue'
+import { Product } from '@/core/entities/Product'
 
 const isLoading = ref(false)
 
 const router = useRouter()
 const props = defineProps<{
+  productId: string
   businessId: string
 }>()
+
+let productValues = ref<Product|null>()
+
+onMounted(() => {
+  ProductService.getById(props.productId).then((data) => {
+    console.log(data)
+    productValues.value = data
+  })
+})
 
 const handleSubmit = (productData: any) => {
   if (isLoading.value) return
 
   isLoading.value = true
 
-  ProductService.create({
+  ProductService.update(props.productId, {
     ...productData,
     business: props.businessId
   }).then((res) => {
     // FIXME: сделать обработку ошибок
-    console.log('[createProduct]:', res)
+    console.log('[updateProduct]:', res)
     router.push({
       name: 'ProfileBusinessPage'
     })
