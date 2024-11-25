@@ -18,7 +18,7 @@
     >
       <div class="flex items-center">
         <div class="w-[48px] h-[48px] rounded-xl overflow-hidden">
-          <img class="w-full h-full object-cover" src="/images/profile.jpg" alt="" width="48" height="48">
+          <Image class="w-full h-full object-cover" src="/images/profil2e.jpg" alt="" width="48" height="48" />
         </div>
         <span class="ml-6 text-[1.6rem]">{{ product.name }}</span>
         <ArrowIcon className="ml-auto text-gray-dark" />
@@ -37,6 +37,7 @@ import Section from '@/components/ui/Section.vue'
 import Separator from '@/components/ui/Separator.vue'
 import { Product } from '@/core/entities/Product'
 import ProductService from '@/services/ProductService'
+import Image from '@/components/ui/Image.vue'
 
 const props = defineProps<{
   businessId: string

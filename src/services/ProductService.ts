@@ -24,15 +24,15 @@ class ProductService {
       }
     }
   }
-  async getAllByBusinessId(id: string) {
+  async getAllByBusinessId(businessId: string) {
     try {
-      const response = await this.repository.getAllByBusinessId(id)
+      const response = await this.repository.getAllByBusinessId(businessId)
       if ('detail' in response) {
         return null
       }
       return response
     } catch(e) {
-      console.log(`[getById]: ${e}`)
+      console.log(`[getAllByBusinessId]: ${e}`)
       return null
     }
   }

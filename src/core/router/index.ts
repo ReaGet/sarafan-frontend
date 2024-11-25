@@ -28,7 +28,7 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: 'business',
-        name: 'AllProfileAllBusinessPage',
+        name: 'ProfileAllBusinessPage',
         component: () => import('@/pages/profile/all-businesses-page.vue'),
         meta: {
           layout: 'Profile',

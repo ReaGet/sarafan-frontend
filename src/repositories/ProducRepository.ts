@@ -18,9 +18,12 @@ export class ProductRepository implements IProductRepository {
       url: basePath
     })
   }
-  async getAllByBusinessId(id: string): Promise<GetAllResponse<Product>> {
+  async getAllByBusinessId(businessId: string): Promise<GetAllResponse<Product>> {
     return fetchClient.get({
-      url: `${basePath}${id}`
+      url: `${basePath}`,
+      body: {
+        business: businessId
+      }
     })
   }
   getById(id: string): Promise<Product> {

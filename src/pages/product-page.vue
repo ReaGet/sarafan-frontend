@@ -3,7 +3,11 @@
     <div class="relative pb-14">
       <div class="-mx-6">
         <AspectRatio className="bg-gray">
-          <img :src="`https://sarafanweb.ru/${product?.photos[currentSlide]}`" class="w-full h-full object-cover">
+          <!-- FIXME: разобраться почему картинка слайда не отображается -->
+          <Image
+            :src="currentSlideSrc"
+            className="w-full h-full object-cover"
+          />
         </AspectRatio>
       </div>
       <div class="absolute h-28 w-full p-4 bottom-0 bg-white rounded-3xl z-10 border border-gray">
@@ -20,7 +24,10 @@
             <AspectRatio
               className="shrink-0 bg-gray"
             >
-              <img :src="`https://sarafanweb.ru/${slide}`" class="w-full h-full object-cover" loading="lazy">
+              <Image
+                :src="`https://sarafanweb.ru${slide}`"
+                className="w-full h-full object-cover"
+              />
             </AspectRatio>
           </div>
         </div>
@@ -38,7 +45,12 @@
       <div class="flex items-center justify-between py-3 px-6 mt-12 bg-gray rounded-xl text-gray-dark">
         <div class="flex items-center gap-5">
           <div class="w-[32px] h-[32px] rounded-xl overflow-hidden">
-            <img class="h-full w-full object-cover" width="32" height="32" src="/images/profile.jpg" />
+            <Image
+              :src="`${basePath}images/profile.jpg`"
+              className="w-full h-full object-cover"
+              width="16"
+              height="16"
+            />
           </div>
           <div>
             <div class="text-[1.6rem] leading-[1.6rem] text-black font-medium">{{ business?.name }}</div>
@@ -68,7 +80,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import AspectRatio from '@/components/ui/AspectRatio.vue'
 import { cn } from '@/lib/cn';
 import ArrowIcon from '@/components/icons/ArrowIcon.vue'
@@ -80,7 +92,9 @@ import { Business } from '@/core/entities/Business'
 import { useRouter } from 'vue-router'
 import ProductService from '@/services/ProductService'
 import BusinessService from '@/services/BusinessService'
+import Image from '@/components/ui/Image.vue'
 
+const basePath = import.meta.env.VITE_BASE_PATH
 const currentSlide = ref(0)
 const router = useRouter()
 
@@ -90,6 +104,10 @@ const business = ref<Business|null>()
 const props = defineProps<{
   id: string
 }>()
+
+const currentSlideSrc = computed(() => {
+  return `https://sarafanweb.ru${product.value?.photos[currentSlide.value]}`
+})
 
 onMounted(async () => {
   const productData = await ProductService.getById(props.id)
