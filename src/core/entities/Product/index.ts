@@ -1,20 +1,20 @@
 export type Product = {
-  id: string
-  business: string
+  id: number
+  business: number
   color: number
   created: string
   description: string
   discount: number
-  height: number
-  length: number
+  height: number | null
+  length: number | null
+  width: number | null
   name: string
   price: number
   quantity: number
-  size: string
+  size: string | null
   updated: string
-  volume_unit: string
-  weight: number
-  weight_unit: string
-  width: number
-  photos: string[]
+  volume_unit: string | null
+  weight: number | null
+  weight_unit: string | null
+  photo_urls: string[]
 }

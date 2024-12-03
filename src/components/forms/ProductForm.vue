@@ -37,7 +37,7 @@ const defaultValues = {
   height: 0,
   width: 0,
   length: 0,
-  photos: [] as string[],
+  photo_urls: [] as string[],
   price: 0,
   quantity: 0,
   size: '',

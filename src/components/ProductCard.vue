@@ -6,7 +6,7 @@
 		}">
 			<AspectRatio className="bg-gray rounded-3xl overflow-hidden">
 				<Image
-					:src="`https://sarafanweb.ru${photos[0]}`"
+					:src="`https://sarafanweb.ru${photo_urls[0]}`"
 					className="w-full h-full object-cover"
 				/>
 			</AspectRatio>

@@ -17,7 +17,7 @@
               'shrink-0 w-20 rounded-xl overflow-hidden',
               { 'border border-primary': currentSlide === i}
             )"
-            v-for="(slide, i) in product?.photos"
+            v-for="(slide, i) in product?.photo_urls"
             :key="slide"
             @click="() => currentSlide = i"
           >
@@ -106,7 +106,7 @@ const props = defineProps<{
 }>()
 
 const currentSlideSrc = computed(() => {
-  return `https://sarafanweb.ru${product.value?.photos[currentSlide.value]}`
+  return `https://sarafanweb.ru${product.value?.photo_urls[currentSlide.value]}`
 })
 
 onMounted(async () => {
@@ -120,5 +120,6 @@ onMounted(async () => {
   const businessData = await BusinessService.getById(productData.id)
   product.value = productData
   business.value = businessData
+  console.log(productData)
 })
 </script>
