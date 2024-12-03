@@ -1,9 +1,10 @@
 import { CreateBusinessDto } from '@/core/repositories/BusinessRepository/dto/createBusinessDto'
-import { BusinessRepository } from '@/repositories/BusinessRepository'
+import { type IBusinessRepository } from '@/core/repositories/BusinessRepository';
+import { BusinessRepository } from '@/repositories/BusinessRepository';
 
 class BusinessService {
-  private repository: BusinessRepository;
-  constructor(repository: BusinessRepository) {
+  private repository: IBusinessRepository;
+  constructor(repository: IBusinessRepository) {
     this.repository = repository
   }
   async create(dto: CreateBusinessDto) {
@@ -28,7 +29,7 @@ class BusinessService {
   }
   async getById(id: string | number) {
     try {
-      const response = await this.repository.getById(id)
+      const response = await this.repository.getById(Number(id))
       if ('detail' in response) {
         return null
       }

@@ -19,6 +19,11 @@ const routes: RouteRecordRaw[] = [
     props: true
   },
   {
+    path: '/cart/',
+    name: 'CartPage',
+    component: () => import('@/pages/cart-page.vue'),
+  },
+  {
     path: '/me',
     children: [
       {

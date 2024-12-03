@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import ImageIcon from '@/components/icons/imageIcon.vue'
+import ImageIcon from '@/components/icons/ImageIcon.vue'
 import { cn } from '@/lib/cn'
 import { onMounted, ref, watch } from 'vue'
 

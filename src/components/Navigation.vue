@@ -19,10 +19,12 @@ import HomeIcon from './icons/HomeIcon.vue'
 import SearchIcon from './icons/SearchIcon.vue'
 import HeartIcon from './icons/HeartIcon.vue'
 import ProfileIcon from './icons/ProfileIcon.vue'
+import CartIcon from '@/components/icons/CartIcon.vue'
 
 const navivationItems: NavigationItem[] = [
   { link: '/', icon: HomeIcon, label: 'Главная' },
   { link: '/search', icon: SearchIcon, label: 'Поиск' },
+  { link: '/cart', icon: CartIcon, label: 'Корзина' },
   { link: '/favorites', icon: HeartIcon, label: 'Избранное' },
   { link: '/me', icon: ProfileIcon, label: 'Профиль' },
 ]

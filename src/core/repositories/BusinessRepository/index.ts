@@ -5,5 +5,5 @@ import { CreateBusinessDto } from './dto/createBusinessDto'
 export interface IBusinessRepository {
   create(dto: CreateBusinessDto): Promise<Business>
   getAll(): Promise<GetAllResponse<Business>>
-  getById(id: string): Promise<Business>
+  getById(id: number): Promise<Business>
 }

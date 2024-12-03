@@ -17,4 +17,5 @@ export type Product = {
   weight: number | null
   weight_unit: string | null
   photo_urls: string[]
+  publish: boolean
 }

@@ -1,9 +1,12 @@
+import { toQuery } from "@/lib/url"
+
 type FetchBody = Record<string, any>
 
 type FetchParams = {
   url: string
   body?: FetchBody
   headers?: Record<string, any>
+  method?: 'POST'|'GET'|'PATCH'
 }
 
 export type GetAllResponse<T> = {
@@ -20,22 +23,23 @@ export interface FetchClient {
 
 export class FetchClient implements FetchClient {
   async get<T>(params: FetchParams): Promise<T> {
-    let { url, headers, body } = params
+    let { url, headers, body, method = 'GET' } = params
     url = `${getApiUrl(url)}`
-    const queryParams = objectToQueryParams(body || {})
+    const queryParams = toQuery(body || {})
     
     if (queryParams)
       url += `?${queryParams}`
 
     return await fetch(url, {
-      headers
+      method,
+      headers,
     }).then(res => res.json())
   }
   async post<T>(params: FetchParams): Promise<T> {
-    const { url, headers, body } = params
+    const { url, headers, body, method = 'POST' } = params
     const finalUrl = `${getApiUrl(url)}`
     return await fetch(finalUrl, {
-      method: 'POST',
+      method,
       headers: {
         'Content-Type': 'application/json',
         ...headers
@@ -44,10 +48,10 @@ export class FetchClient implements FetchClient {
     }).then(res => res.json())
   }
   async update<T>(params: FetchParams): Promise<T> {
-    const { url, headers, body } = params
+    const { url, headers, body, method = 'PATCH' } = params
     const finalUrl = `${getApiUrl(url)}`
     return await fetch(finalUrl, {
-      method: 'PATCH',
+      method,
       headers: {
         'Content-Type': 'application/json',
         ...headers
@@ -59,8 +63,4 @@ export class FetchClient implements FetchClient {
 
 const getApiUrl = (url: string) => {
   return `${import.meta.env.VITE_BASE_API}${url}`
-}
-
-const objectToQueryParams = (obj: Record<string, any>) => {
-  return new URLSearchParams(obj).toString()
 }

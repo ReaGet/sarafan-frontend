@@ -10,7 +10,7 @@
           />
         </AspectRatio>
       </div>
-      <div class="absolute h-28 w-full p-4 bottom-0 bg-white rounded-3xl z-10 border border-gray">
+      <div v-if="product?.photo_urls?.length" class="absolute h-28 w-full p-4 bottom-0 bg-white rounded-3xl z-10 border border-gray">
         <div class="flex gap-5 overflow-hidden">
           <div
             :class="cn(
